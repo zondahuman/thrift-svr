@@ -22,7 +22,7 @@
     <dependencies>
         <dependency>
             <groupId>com.abin.lee</groupId>
-            <artifactId>thrift-common</artifactId>
+            <artifactId>thrift-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

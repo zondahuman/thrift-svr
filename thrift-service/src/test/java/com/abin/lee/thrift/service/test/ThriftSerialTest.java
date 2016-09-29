@@ -1,7 +1,5 @@
 package com.abin.lee.thrift.service.test;
 
-import com.abin.lee.thrift.model.Book;
-import com.abin.lee.thrift.pojo.request.RequestMessage;
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TMemoryBuffer;
@@ -26,24 +24,24 @@ public class ThriftSerialTest {
         TMemoryBuffer mb2 = new TMemoryBuffer(32);
         TProtocol prot2 = new org.apache.thrift.protocol.TJSONProtocol(mb2);
 
-// 传输消息对象
-        Book msg = new Book();
-        msg.setName("abcdefghjklfadfadfadfadloiue");
-        msg.setId(111);
-// 序列化处理
-        msg.write(prot0);
-        msg.write(prot1);
-        msg.write(prot2);
-        System.out.println("序列化长度Compact：" + mb0.length());
-        System.out.println("序列化长度Binary：" + mb1.length());
-        System.out.println("序列化长度JSON：" + mb2.length());
-// 反序列化处理
-        byte[] data = mb1.getArray(); // 接收的字节
-        Book msg1 = new Book();
-        TMemoryBuffer tmb = new TMemoryBuffer(32);
-        tmb.write(data);
-        TProtocol tp = new org.apache.thrift.protocol.TBinaryProtocol(tmb);
-        msg1.read(tp);
-        System.out.println(msg1.getName());
+//// 传输消息对象
+//        Book msg = new Book();
+//        msg.setName("abcdefghjklfadfadfadfadloiue");
+//        msg.setId(111);
+//// 序列化处理
+//        msg.write(prot0);
+//        msg.write(prot1);
+//        msg.write(prot2);
+//        System.out.println("序列化长度Compact：" + mb0.length());
+//        System.out.println("序列化长度Binary：" + mb1.length());
+//        System.out.println("序列化长度JSON：" + mb2.length());
+//// 反序列化处理
+//        byte[] data = mb1.getArray(); // 接收的字节
+//        Book msg1 = new Book();
+//        TMemoryBuffer tmb = new TMemoryBuffer(32);
+//        tmb.write(data);
+//        TProtocol tp = new org.apache.thrift.protocol.TBinaryProtocol(tmb);
+//        msg1.read(tp);
+//        System.out.println(msg1.getName());
     }
 }

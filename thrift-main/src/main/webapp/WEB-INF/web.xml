@@ -2,19 +2,27 @@
 <web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
 
-    <display-name>ThriftTest</display-name>
+    <display-name>thrift-svr</display-name>
 
 	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/backend-servlet.xml,
-			classpath:spring/applicationContext*.xml
+			classpath:spring/spring-*.xml
 		</param-value>
 	</context-param>
-	
-	
-	<filter>
+
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+
+
+
+    <filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>
 			org.springframework.web.filter.CharacterEncodingFilter
@@ -27,12 +35,14 @@
 
     <filter-mapping>
         <filter-name>CharacterEncodingFilter</filter-name>
-        <servlet-name>backend</servlet-name>
+        <servlet-name>springmvc</servlet-name>
     </filter-mapping>
+
+
 
 	
 	<servlet>
-		<servlet-name>backend</servlet-name>
+		<servlet-name>springmvc</servlet-name>
 		<servlet-class>
 			org.springframework.web.servlet.DispatcherServlet
 		</servlet-class>
@@ -40,27 +50,14 @@
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>backend</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>backend</servlet-name>
-		<url-pattern>*.ivs</url-pattern>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<listener>
-		<listener-class>
-            org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-	</listener>
+
+
 	
-	<listener>
-		<listener-class>
-            com.abin.lee.thrift.service.listener.ThriftServerStartListener
-        </listener-class>
-	</listener>
- 
+
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>

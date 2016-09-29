@@ -13,25 +13,22 @@ import org.apache.http.util.EntityUtils;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
 *
 */
-public class ThriftCallTest {
-//    private static final String httpURL = "http://localhost:7000/index.do";
-    private static final String httpURL = "http://localhost:7000/thrift/index.do";
-//    private static final String httpURL = "http://localhost:7200/load/platform";
-//    private static final String httpURL = "http://172.16.2.133:9000/load/platform";
-//    private static final String httpURL = "https://172.16.2.133/load/platform";
+public class ThriftClientRpcTest {
+    private static final String httpURL = "http://localhost:7000/thrift/userInfo";
 
     @Test
-    public void testThriftCall() throws IOException {
+    public void testThriftClientRpc() throws IOException {
         CloseableHttpClient httpclient = HttpClientUtil.getHttpClient();
         try {
             HttpPost httpPost = new HttpPost(httpURL);
             List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-            nvps.add(new BasicNameValuePair("name", "abin"));
+            nvps.add(new BasicNameValuePair("param", "123456789"));
             httpPost.setEntity(new UrlEncodedFormEntity(nvps, Consts.UTF_8));
             System.out.println("Executing request: " + httpPost.getRequestLine());
             CloseableHttpResponse response = httpclient.execute(httpPost);
