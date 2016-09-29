@@ -18,7 +18,7 @@
 	default-lazy-init="true">
 
 
-    <import resource="classpath*:spring/spring-thrift-server.xml" />
+    <import resource="classpath:spring/spring-thrift-server.xml" />
 
 
 
