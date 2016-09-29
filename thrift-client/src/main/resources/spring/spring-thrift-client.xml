@@ -30,7 +30,7 @@
 
 
     <bean id="userService" class="com.abin.lee.thrift.client.proxy.ThriftServiceClientProxyFactory" destroy-method="close">
-        <property name="service" value="com.abin.lee.thrift.service.UserService"></property>
+        <property name="service" value="com.abin.lee.thrift.client.service.UserService"></property>
         <property name="maxActive" value="5"></property>
         <property name="idleTime" value="1800000"></property>
         <property name="addressProvider">

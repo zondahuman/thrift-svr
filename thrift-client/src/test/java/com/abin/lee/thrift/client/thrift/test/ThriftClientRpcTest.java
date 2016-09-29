@@ -20,7 +20,7 @@ import java.util.List;
 *
 */
 public class ThriftClientRpcTest {
-    private static final String httpURL = "http://localhost:7000/thrift/userInfo";
+    private static final String httpURL = "http://localhost:7200/thrift/userInfo";
 
     @Test
     public void testThriftClientRpc() throws IOException {

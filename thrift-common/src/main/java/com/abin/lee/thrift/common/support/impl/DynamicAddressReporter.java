@@ -29,7 +29,7 @@ public class DynamicAddressReporter implements ThriftServerAddressReporter {
 		zookeeper.create()
 			.creatingParentsIfNeeded()
 			.withMode(CreateMode.EPHEMERAL_SEQUENTIAL)
-			.forPath(service +"/i_",address.getBytes("utf-8"));
+			.forPath(service +"/i_", address.getBytes("utf-8"));
 	}
 	
 	
